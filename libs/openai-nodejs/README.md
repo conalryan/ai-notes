@@ -57,3 +57,11 @@ console.log(completion.choices[0]);
 //   finish_reason: 'stop'
 // }
 ```
+
+## [Simple Chat UX](https://scottmoss.notion.site/Simple-chat-UX-59c4414fd15b4346bde3f543e69e041b)
+
+### Temperature
+
+The higher the tempature the more imaginative the response.
+A value of `0` will always return the same response.
+A Value of `1` will be more imaginative.

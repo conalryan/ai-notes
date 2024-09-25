@@ -23,7 +23,7 @@ Create the `.env` file with your OpenAI API key
 echo "OPENAI_API_KEY=sk-proj-95343043-0000-0000-0000-000000000000" >> .env
 ```
 
-Hello world chat
+## Hello world chat
 
 ```js
 import 'dotenv/config';
@@ -65,3 +65,11 @@ console.log(completion.choices[0]);
 The higher the tempature the more imaginative the response.
 A value of `0` will always return the same response.
 A Value of `1` will be more imaginative.
+
+## [Creating Semantic Search](https://scottmoss.notion.site/Creating-Semantic-search-51fc63277382409a8613fe64a48f6a3b)
+
+Great for discovery engines.
+
+If you want to build LLMs into your application LangChain is the most sofisticated library.
+
+### [Scaling Semantic Search](https://scottmoss.notion.site/Scaling-Semantic-search-cc30dfdb975a4d458300d73efa613e79)

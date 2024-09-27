@@ -1,36 +1,121 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# OpenAI NextJS
 
-## Getting Started
-
-First, run the development server:
+## [NextJS](https://nextjs.org/docs)
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm dlx create-next-app@latest
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## [Clerk](https://clerk.com/docs)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm --filter openai-nextjs add @clerk/nextjs
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## [Neon DB](https://neon.tech/docs/get-started-with-neon/signing-up)
 
-## Learn More
+### Playing with Neon
 
-To learn more about Next.js, take a look at the following resources:
+```sql
+CREATE TABLE IF NOT EXISTS playing_with_neon(id SERIAL PRIMARY KEY, name TEXT NOT NULL, value REAL);
+INSERT INTO playing_with_neon(name, value)
+  SELECT LEFT(md5(i::TEXT), 10), random() FROM generate_series(1, 10) s(i);
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Create a new branch
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+neon branches create --name dev/conal
+```
 
-## Deploy on Vercel
+### Connect to your database
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Get the connection string to your branch and connect to it directly via psql:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+neon connection-string dev/conal --database-name mydb --psql
+```
+
+This command establishes the psql terminal connection to the neondb database on your dev branch.
+
+### Modify the schema
+
+Add a new column description and index it:
+
+```sql
+ALTER TABLE playing_with_neon
+ADD COLUMN description TEXT;
+
+CREATE INDEX idx_playing_with_neon_description ON playing_with_neon (description);
+```
+
+### Insert new data
+
+Add new data that will be exclusive to the dev branch.
+
+```sql
+INSERT INTO playing_with_neon (name, description)
+VALUES ('Your dev branch', 'Exploring schema changes in the dev branch');
+```
+
+### Verify the schema changes
+
+Query the table to verify your schema changes:
+
+```sql
+SELECT * FROM playing_with_neon;
+```
+
+### Reset your branch
+
+```bash
+neon branches reset dev/conal --parent
+```
+
+A Neon connection string includes the role, password, hostname, and database name.
+
+postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.neon.tech/dbname
+
+.env file
+
+```
+PGUSER=alex
+PGHOST=ep-cool-darkness-123456.us-east-2.aws.neon.tech
+PGDATABASE=dbname
+PGPASSWORD=AbC123dEf
+PGPORT=5432
+```
+
+Variable
+
+```
+DATABASE_URL="postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.neon.tech/dbname"
+```
+
+Command-line
+
+```bash
+psql postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.neon.tech/dbname
+```
+
+## [Prisma](https://www.prisma.io/docs/getting-started/quickstart)
+
+### Install
+
+```bash
+pnpm add prisma --save-dev
+```
+
+### Setup
+
+```bash
+pnpm --filter openai-nextjs exec prisma init
+```
+
+This creates a new prisma directory with a schema.prisma file and configures SQLite as your database. You're now ready to model your data and create your database with some tables.
+
+### Update the schema
+
+```bash
+pnpm --filter openai-nextjs exec prisma db push
+```

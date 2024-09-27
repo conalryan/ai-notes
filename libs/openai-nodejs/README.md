@@ -103,3 +103,13 @@ pnpm add youtube-transcript youtubei.js
 ```bash
 node ./libs/openai-nodejs/youtube-qa.js "Where did Brian work?"
 ```
+
+## Function calling
+
+```bash
+pnpm add advanced-calculator
+```
+
+```bash
+node ./libs/openai-nodejs/functions.js "what is the 22 + 8 * 99 / .3 ^2"
+```

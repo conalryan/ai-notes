@@ -19,6 +19,9 @@ importers:
       '@langchain/openai':
         specifier: ^0.3.2
         version: 0.3.2(@langchain/core@0.3.3(openai@4.65.0(zod@3.23.8)))
+      advanced-calculator:
+        specifier: ^1.1.1
+        version: 1.1.1
       dotenv:
         specifier: ^16.4.5
         version: 16.4.5
@@ -45,10 +48,10 @@ importers:
 packages:
 
   '@bufbuild/protobuf@2.1.0':
-    resolution: {integrity: sha512-+2Mx67Y3skJ4NCD/qNSdBJNWtu6x6Qr53jeNg+QcwiL6mt0wK+3jwHH2x1p7xaYH6Ve2JKOVn0OxU35WsmqI9A==, tarball: https://repos.akamai.com:443/artifactory/api/npm/npmjs-repos/@bufbuild/protobuf/-/protobuf-2.1.0.tgz}
+    resolution: {integrity: sha512-+2Mx67Y3skJ4NCD/qNSdBJNWtu6x6Qr53jeNg+QcwiL6mt0wK+3jwHH2x1p7xaYH6Ve2JKOVn0OxU35WsmqI9A==}
 
   '@fastify/busboy@2.1.1':
-    resolution: {integrity: sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==, tarball: https://repos.akamai.com:443/artifactory/api/npm/npmjs-repos/@fastify/busboy/-/busboy-2.1.1.tgz}
+    resolution: {integrity: sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==}
     engines: {node: '>=14'}
 
   '@langchain/community@0.3.3':
@@ -454,9 +457,12 @@ packages:
     engines: {node: '>=6.5'}
 
   acorn@8.12.1:
-    resolution: {integrity: sha512-tcpGyI9zbizT9JbV6oYE477V6mTlXvvi0T0G3SNIYE2apm/G5huBa1+K89VGeovbg+jycCrfhl3ADxErOuO6Jg==, tarball: https://repos.akamai.com:443/artifactory/api/npm/npmjs-repos/acorn/-/acorn-8.12.1.tgz}
+    resolution: {integrity: sha512-tcpGyI9zbizT9JbV6oYE477V6mTlXvvi0T0G3SNIYE2apm/G5huBa1+K89VGeovbg+jycCrfhl3ADxErOuO6Jg==}
     engines: {node: '>=0.4.0'}
     hasBin: true
+
+  advanced-calculator@1.1.1:
+    resolution: {integrity: sha512-ak2G4Q0HkPOMrJQU3kyYyIsFHAOkp1vfsCtYF2gwSb8qAWYAmligJjJFesbsgBTDlgKFAm86b6HbGdggXOzxqA==, tarball: https://repos.akamai.com:443/artifactory/api/npm/npmjs-repos/advanced-calculator/-/advanced-calculator-1.1.1.tgz}
 
   agentkeepalive@4.5.0:
     resolution: {integrity: sha512-5GG/5IbQQpC9FpkRGsSvZI5QYeSCzlJHdpBQntCsuTOxhKD8lqKhrleg2Yi7yvMIf82Ycmmqln9U8V9qwEiJew==}
@@ -540,7 +546,7 @@ packages:
     resolution: {integrity: sha512-Fl70vYtsAFb/C06PTS9dZBo7ihau+Tu/DNCk/OyHhea07S+aeMWpFFkUaXRa8fI+ScZbEI8dfSxwY7gxZ9SAVQ==}
 
   jintr@2.1.1:
-    resolution: {integrity: sha512-89cwX4ouogeDGOBsEVsVYsnWWvWjchmwXBB4kiBhmjOKw19FiOKhNhMhpxhTlK2ctl7DS+d/ethfmuBpzoNNgA==, tarball: https://repos.akamai.com:443/artifactory/api/npm/npmjs-repos/jintr/-/jintr-2.1.1.tgz}
+    resolution: {integrity: sha512-89cwX4ouogeDGOBsEVsVYsnWWvWjchmwXBB4kiBhmjOKw19FiOKhNhMhpxhTlK2ctl7DS+d/ethfmuBpzoNNgA==}
 
   js-tiktoken@1.0.14:
     resolution: {integrity: sha512-Pk3l3WOgM9joguZY2k52+jH82RtABRgB5RdGFZNUGbOKGMVlNmafcPA3b0ITcCZPu1L9UclP1tne6aw7ZI4Myg==}
@@ -688,13 +694,13 @@ packages:
     resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==}
 
   tslib@2.7.0:
-    resolution: {integrity: sha512-gLXCKdN1/j47AiHiOkJN69hJmcbGTHI0ImLmbYLHykhgeN0jVGola9yVjFgzCUklsZQMW55o+dW7IXv3RCXDzA==, tarball: https://repos.akamai.com:443/artifactory/api/npm/npmjs-repos/tslib/-/tslib-2.7.0.tgz}
+    resolution: {integrity: sha512-gLXCKdN1/j47AiHiOkJN69hJmcbGTHI0ImLmbYLHykhgeN0jVGola9yVjFgzCUklsZQMW55o+dW7IXv3RCXDzA==}
 
   undici-types@5.26.5:
     resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
 
   undici@5.28.4:
-    resolution: {integrity: sha512-72RFADWFqKmUb2hmmvNODKL3p9hcB6Gt2DOQMis1SEBaV6a4MH8soBvzg+95CYhCKPFedut2JY9bMfrDl9D23g==, tarball: https://repos.akamai.com:443/artifactory/api/npm/npmjs-repos/undici/-/undici-5.28.4.tgz}
+    resolution: {integrity: sha512-72RFADWFqKmUb2hmmvNODKL3p9hcB6Gt2DOQMis1SEBaV6a4MH8soBvzg+95CYhCKPFedut2JY9bMfrDl9D23g==}
     engines: {node: '>=14.0'}
 
   uuid@10.0.0:
@@ -721,7 +727,7 @@ packages:
     engines: {node: '>=18.0.0'}
 
   youtubei.js@10.5.0:
-    resolution: {integrity: sha512-iyA+VF28c15tCCKH9ExM2RKC3zYiHzA/eixGlJ3vERANkuI+xYKzAZ4vtOhmyqwrAddu88R/DkzEsmpph5NWjg==, tarball: https://repos.akamai.com:443/artifactory/api/npm/npmjs-repos/youtubei.js/-/youtubei.js-10.5.0.tgz}
+    resolution: {integrity: sha512-iyA+VF28c15tCCKH9ExM2RKC3zYiHzA/eixGlJ3vERANkuI+xYKzAZ4vtOhmyqwrAddu88R/DkzEsmpph5NWjg==}
 
   zod-to-json-schema@3.23.3:
     resolution: {integrity: sha512-TYWChTxKQbRJp5ST22o/Irt9KC5nj7CdBKYB/AosCRdj/wxEMvv4NNaj9XVUHDOIp53ZxArGhnw5HMZziPFjog==}
@@ -818,6 +824,8 @@ snapshots:
       event-target-shim: 5.0.1
 
   acorn@8.12.1: {}
+
+  advanced-calculator@1.1.1: {}
 
   agentkeepalive@4.5.0:
     dependencies:

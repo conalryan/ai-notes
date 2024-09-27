@@ -73,3 +73,33 @@ Great for discovery engines.
 If you want to build LLMs into your application LangChain is the most sofisticated library.
 
 ### [Scaling Semantic Search](https://scottmoss.notion.site/Scaling-Semantic-search-cc30dfdb975a4d458300d73efa613e79)
+
+## [Document QA](https://scottmoss.notion.site/Document-QA-a631b110afff4eedb782e295cd9bd300)
+
+Create for indexing on a specific document or documents.
+
+### Use cases
+
+- Onboarding chatbot that could help engineers onboard. They could ask the chatbot how do I setup x, y, z.? What is the style guide?
+- Customer support bot
+- Learning about content, pasted a document into the chatbot then have the bot teach you about it.
+
+### PDF QA
+
+```bash
+pnpm add langchain @langchain/openai @langchain/core @langchain/community pdf-parse
+```
+
+```bash
+node ./libs/openai-nodejs/document-qa.js "what is the x-box warranty?"
+```
+
+### Youtube QA
+
+```bash
+pnpm add youtube-transcript youtubei.js
+```
+
+```bash
+node ./libs/openai-nodejs/youtube-qa.js "Where did Brian work?"
+```

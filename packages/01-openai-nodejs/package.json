@@ -1,0 +1,26 @@
+{
+  "name": "01-openai-nodejs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "format": "prettier --write .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@langchain/community": "^0.3.3",
+    "@langchain/core": "^0.3.3",
+    "@langchain/openai": "^0.3.2",
+    "advanced-calculator": "^1.1.1",
+    "dotenv": "^16.4.5",
+    "langchain": "^0.3.2",
+    "openai": "^4.65.0",
+    "pdf-parse": "^1.1.1",
+    "youtube-transcript": "^1.2.1",
+    "youtubei.js": "^10.5.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3"
+  }
+}

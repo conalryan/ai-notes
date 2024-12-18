@@ -67,3 +67,34 @@ Neon has a branching feature similar to PlanetScale that will be in closer align
 
 [fem]: https://frontendmasters.com
 [course]: https://frontendmasters.com/courses/fullstack-app-next-v3/
+
+## [Prisma](https://www.prisma.io/docs/getting-started/quickstart)
+
+### Install
+
+```bash
+pnpm add prisma --save-dev
+```
+
+### Setup
+
+```bash
+pnpm --filter 02-mood-journal exec prisma init
+```
+
+This creates a new prisma directory with a schema.prisma file and configures SQLite as your database. You're now ready to model your data and create your database with some tables.
+
+### Update the schema
+
+```bash
+pnpm --filter 02-mood-journal exec prisma generate
+pnpm --filter 02-mood-journal exec prisma format
+pnpm --filter 02-mood-journal exec prisma db push
+pnpm --filter 02-mood-journal exec prisma migrate dev --name init
+```
+
+### Prisma Studio
+
+```bash
+pnpm --filter 02-mood-journal exec prisma studio
+```

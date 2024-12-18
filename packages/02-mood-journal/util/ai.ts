@@ -36,7 +36,7 @@ const parser = StructuredOutputParser.fromZodSchema(
   })
 )
 
-const getPrompt = async (content) => {
+const getPrompt = async (content: string) => {
   const format_instructions = parser.getFormatInstructions()
 
   const prompt = new PromptTemplate({
@@ -53,7 +53,7 @@ const getPrompt = async (content) => {
   return input
 }
 
-export const analyzeEntry = async (entry) => {
+export const analyzeEntry = async (entry: any) => {
   const input = await getPrompt(entry.content)
   const model = new OpenAI({ temperature: 0, modelName: 'gpt-3.5-turbo' })
   const output = await model.call(input)
@@ -70,9 +70,9 @@ export const analyzeEntry = async (entry) => {
   }
 }
 
-export const qa = async (question, entries) => {
+export const qa = async (question: string, entries: any) => {
   const docs = entries.map(
-    (entry) =>
+    (entry: any) =>
       new Document({
         pageContent: entry.content,
         metadata: { source: entry.id, date: entry.createdAt },

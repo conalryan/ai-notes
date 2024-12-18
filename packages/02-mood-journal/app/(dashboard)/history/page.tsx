@@ -12,7 +12,7 @@ const getData = async () => {
       createdAt: 'asc',
     },
   })
-  const total = analyses.reduce((acc, curr) => {
+  const total = analyses.reduce((acc: any, curr: any) => {
     return acc + curr.sentimentScore
   }, 0)
   const average = total / analyses.length

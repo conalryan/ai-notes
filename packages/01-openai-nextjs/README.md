@@ -9,7 +9,7 @@ pnpm dlx create-next-app@latest
 ## [Clerk](https://clerk.com/docs)
 
 ```bash
-pnpm --filter openai-nextjs add @clerk/nextjs
+pnpm --filter 01-openai-nextjs add @clerk/nextjs
 ```
 
 ## [Neon DB](https://neon.tech/docs/get-started-with-neon/signing-up)
@@ -109,7 +109,7 @@ pnpm add prisma --save-dev
 ### Setup
 
 ```bash
-pnpm --filter openai-nextjs exec prisma init
+pnpm --filter 01-openai-nextjs exec prisma init
 ```
 
 This creates a new prisma directory with a schema.prisma file and configures SQLite as your database. You're now ready to model your data and create your database with some tables.
@@ -117,13 +117,13 @@ This creates a new prisma directory with a schema.prisma file and configures SQL
 ### Update the schema
 
 ```bash
-pnpm --filter openai-nextjs exec prisma format
-pnpm --filter openai-nextjs exec prisma db push
-pnpm --filter openai-nextjs exec prisma migrate dev --name init
+pnpm --filter 01-openai-nextjs exec prisma format
+pnpm --filter 01-openai-nextjs exec prisma db push
+pnpm --filter 01-openai-nextjs exec prisma migrate dev --name init
 ```
 
 ### Prisma Studio
 
 ```bash
-pnpm --filter openai-nextjs exec prisma studio
+pnpm --filter 01-openai-nextjs exec prisma studio
 ```

@@ -7,5 +7,5 @@ pnpm init
 ```
 
 ```bash
-echo "libs:\n  - \"packages/*\"" >> pnpm-workspace.yaml
+echo "packages:\n  - \"packages/*\"" >> pnpm-workspace.yaml
 ```

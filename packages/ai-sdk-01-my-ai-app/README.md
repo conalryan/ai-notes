@@ -2,16 +2,16 @@
 
 ## [NEXT.JS APP ROUTER](https://sdk.vercel.ai/docs/getting-started/nextjs-app-router)
 1. Create a new Next.js app
-`pnpm create next-app@latest packages/my-ai-app`
+`pnpm create next-app@latest packages/ai-sdk-01-my-ai-app`
 
 2. Install the AI SDK and dependencies
-`pnpm -F my-ai-app add ai @ai-sdk/openai zod`
+`pnpm -F ai-sdk-01-my-ai-app add ai @ai-sdk/openai zod`
 
 3. Add an env.local file
 `echo "OPENAI_API_KEY=xxxxxxxxx" > .env.local`
 
 4. Run the app
-`pnpm -F my-ai-app dev`
+`pnpm -F ai-sdk-01-my-ai-app dev`
 
 5. Define an /api/chat route for the useChat hook
 

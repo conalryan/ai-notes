@@ -55,3 +55,14 @@ Once your source material is appropriately chunked, you can embed each one and t
 1. `pnpm -F ai-sdk-02-rag-starter add ai`
 2. Create embeddings.ts file in `lib/db/schema`
 3. `pnpm -F ai-sdk-02-rag-starter db:push`
+
+## Add Embedding Logic
+
+Now that you have a table to store embeddings, it’s time to write the logic to create the embeddings.
+
+Generate Chunks
+
+Remember, to create an embedding, you will start with a piece of source material (unknown length), break it down into smaller chunks, embed each chunk, and then save the chunk to the database. Let’s start by creating a function to break the source material into small chunks.
+
+1. `pnpm -F ai-sdk-02-rag-starter add ai @ai-sdk/openai`
+

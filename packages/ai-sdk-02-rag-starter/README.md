@@ -49,3 +49,9 @@ Once your source material is appropriately chunked, you can embed each one and t
 `\l` - List of databases
 `\d` - List of relations
 `\dt` - List of relations details
+
+## Create Embeddings Table
+
+1. `pnpm -F ai-sdk-02-rag-starter add ai`
+2. Create embeddings.ts file in `lib/db/schema`
+3. `pnpm -F ai-sdk-02-rag-starter db:push`

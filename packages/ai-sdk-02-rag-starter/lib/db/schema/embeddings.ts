@@ -1,6 +1,9 @@
-import { generateId } from 'ai';
+import { openai } from '@ai-sdk/openai';
+import { embedMany, generateId } from 'ai';
 import { index, pgTable, text, varchar, vector } from 'drizzle-orm/pg-core';
 import { resources } from './resources';
+
+const embeddingModel = openai.embedding('text-embedding-ada-002');
 
 export const embeddings = pgTable(
   'embeddings',
@@ -28,3 +31,23 @@ export const embeddings = pgTable(
     ),
   }),
 );
+
+const generateChunks = (input: string): string[] => {
+  return input
+    .trim()
+    // It is worth experimenting with different chunking techniques in your projects as the best technique will vary.
+    // Here, we are splitting the input by periods.
+    .split('.')
+    .filter(i => i !== '');
+};
+
+export const generateEmbeddings = async (
+  value: string,
+): Promise<Array<{ embedding: number[]; content: string }>> => {
+  const chunks = generateChunks(value);
+  const { embeddings } = await embedMany({
+    model: embeddingModel,
+    values: chunks,
+  });
+  return embeddings.map((e, i) => ({ content: chunks[i], embedding: e }));
+};  

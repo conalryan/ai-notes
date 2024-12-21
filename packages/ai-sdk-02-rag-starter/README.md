@@ -60,9 +60,38 @@ Once your source material is appropriately chunked, you can embed each one and t
 
 Now that you have a table to store embeddings, it’s time to write the logic to create the embeddings.
 
-Generate Chunks
+## Generate Chunks
 
 Remember, to create an embedding, you will start with a piece of source material (unknown length), break it down into smaller chunks, embed each chunk, and then save the chunk to the database. Let’s start by creating a function to break the source material into small chunks.
 
 1. `pnpm -F ai-sdk-02-rag-starter add ai @ai-sdk/openai`
+
+## Create Root Page
+
+Great! Let's build the frontend. The AI SDK’s useChat hook allows you to easily create a conversational user interface for your chatbot application.
+
+1. `pnpm -F ai-sdk-02-rag-starter run dev`
+
+By default, useChat will send a POST request to the /api/chat endpoint with the messages as the request body.
+
+## Create API Route
+
+In Next.js, you can create custom request handlers for a given route using Route Handlers.
+
+Route Handlers are defined in a `route.ts` file and can export HTTP methods like `GET`, `POST`, `PUT`, `PATCH` etc.
+
+Create a file at `app/api/chat/route.ts` by running the following command:
+
+```bash
+mkdir -p packages/ai-sdk-02-rag-starter/app/api/chat && touch packages/ai-sdk-02-rag-starter/app/api/chat/route.ts
+```
+
+## Using Tools
+
+A tool is a function that can be called by the model to perform a specific task.
+The model will decide whether it should call the tool.
+When called the tool/model? will extract the parameters from the input and then append a new message to the messages array of type tool-call. 
+The AI SDK will then run the execute function with the parameters provided by the tool-call message.
+
+`pnpm -F ai-sdk-02-rag-starter db:studio`
 

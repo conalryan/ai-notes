@@ -1,14 +1,12 @@
-import { openai } from '@ai-sdk/openai';
-import { embedMany, generateId } from 'ai';
+import { generateId } from 'ai';
 import { index, pgTable, text, varchar, vector } from 'drizzle-orm/pg-core';
-import { resources } from './resources';
 
-const embeddingModel = openai.embedding('text-embedding-ada-002');
+import { resources } from './resources';
 
 export const embeddings = pgTable(
   'embeddings',
   {
-    // id - unique identifier
+    // id - unique identifier
     id: varchar('id', { length: 191 })
       .primaryKey()
       .$defaultFn(() => generateId()),
@@ -22,7 +20,7 @@ export const embeddings = pgTable(
     // embedding - the vector representation of the plain text chunk
     embedding: vector('embedding', { dimensions: 1536 }).notNull(),
   },
-  table => ({
+  (table) => ({
     // To perform similarity search, you also need to include an index (HNSW
     // or IVFFlat) on this column for better performance.
     embeddingIndex: index('embeddingIndex').using(
@@ -32,22 +30,3 @@ export const embeddings = pgTable(
   }),
 );
 
-const generateChunks = (input: string): string[] => {
-  return input
-    .trim()
-    // It is worth experimenting with different chunking techniques in your projects as the best technique will vary.
-    // Here, we are splitting the input by periods.
-    .split('.')
-    .filter(i => i !== '');
-};
-
-export const generateEmbeddings = async (
-  value: string,
-): Promise<Array<{ embedding: number[]; content: string }>> => {
-  const chunks = generateChunks(value);
-  const { embeddings } = await embedMany({
-    model: embeddingModel,
-    values: chunks,
-  });
-  return embeddings.map((e, i) => ({ content: chunks[i], embedding: e }));
-};  

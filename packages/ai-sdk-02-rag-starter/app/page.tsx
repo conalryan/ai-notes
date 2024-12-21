@@ -5,7 +5,10 @@ import { useChat } from 'ai/react';
 export default function Chat() {
   // The useChat hook enables the streaming of chat messages from your AI provider (you will be using OpenAI),
   // By default, useChat will send a POST request to the /api/chat endpoint with the messages as the request body.
-  const { messages, input, handleInputChange, handleSubmit } = useChat();
+  const { messages, input, handleInputChange, handleSubmit } = useChat({
+    // The AI SDK has a feature called maxSteps which will automatically send tool call results back to the model!
+    maxSteps: 3,
+  });
   return (
     <div className="flex flex-col w-full max-w-md py-24 mx-auto stretch">
       <div className="space-y-4">

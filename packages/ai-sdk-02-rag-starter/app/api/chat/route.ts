@@ -1,4 +1,5 @@
 import { createResource } from '@/lib/actions/resources';
+import { findRelevantContent } from '@/lib/ai/embedding';
 import { openai } from '@ai-sdk/openai';
 import { streamText, tool } from 'ai';
 import { z } from 'zod';
@@ -32,6 +33,13 @@ export async function POST(req: Request) {
         // append a new message to the messages array of type tool-call. The AI SDK will then 
         // run the execute function with the parameters provided by the tool-call message.
         execute: async ({ content }) => createResource({ content }),
+      }),
+      getInformation: tool({
+        description: `get information from your knowledge base to answer questions.`,
+        parameters: z.object({
+          question: z.string().describe('the users question'),
+        }),
+        execute: async ({ question }) => findRelevantContent(question),
       }),
     },
   });
